@@ -11,10 +11,19 @@ let weekDays = [
   "Saturday"
 ];
 
+function fixNumberLowerThanTen(number) {
+    if(number < 10) {
+        return '0' + number;
+    }else {
+        return number;
+    }
+}
+
+
 let currentWeekDay = weekDays[now.getDay()];
 let currentHour = now.getHours();
 let currentMinutes = now.getMinutes();
-let currentDateTime = currentWeekDay + " " + currentHour + ":" + currentMinutes;
+let currentDateTime = currentWeekDay + " " + fixNumberLowerThanTen(currentHour) + ":" + fixNumberLowerThanTen(currentMinutes);
 let dateTimeElement = document.querySelector("#dateTime");
 dateTimeElement.innerHTML = currentDateTime;
 
