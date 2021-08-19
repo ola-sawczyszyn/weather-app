@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="card p-4">
+        <div class="row mb-4">
+          <form id="searchCityForm">
+            <div class="row">
+              <div class="col">
+                <input
+                  id="searchCityInput"
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter name of a city"
+                />
+              </div>
+              <div class="col">
+                <input type="submit" class="btn btn-primary" value="Search" />
+                <button class="btn btn-success" id="currentLocation">Current location</button>
+              </div>
+            </div>
+          </form>
+          
+        </div>
+        <div class="row">
+            <h3 id="city">Oslo</h1>
+            <div id="dateTime">Thursday 23:00</div>
+            <div id="weather">Clear</div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1 id="temperature">23°C</h1>
+            </div>
+            <div class="col">
+              <div id="humidity">
+                Humidity: 90%
+              </div>
+              <div id="wind">
+                Wind: 90km/h
+              </div>
+            </div>
+        </div>
+    </div>
+    <span>
+      <a href="https://github.com/ola-sawczyszyn/weather-app">Open-source code </a> 
+    
+      by Aleksandra Sawczyszyn
+    </span>
+    <script
+      src="https://kit.fontawesome.com/5f9c4f5adc.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="src/index.js"></script>
+  </body>
+</html>
