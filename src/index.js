@@ -11,6 +11,32 @@ let weekDays = [
   "Saturday",
 ];
 
+let unit = "Celcius";
+let temperature = 23;
+
+function showTemperature(temperature, unit) {
+  let celciusUnit = "°C";
+  let fahrenheitUnit = '<a href="#" onclick="toggleUnits()">°F</a>';
+  if (unit === "Fahrenheit") {
+    temperature = (temperature * 9) / 5 + 32;
+    celciusUnit = '<a href="#" onclick="toggleUnits()">°C</a>';
+    fahrenheitUnit = "°F";
+  }
+  let finalTemp = Math.floor(temperature);
+  document.querySelector(
+    "#temperature"
+  ).innerHTML = `${finalTemp}${celciusUnit}|${fahrenheitUnit}`;
+}
+
+function toggleUnits() {
+  if (unit === "Celcius") {
+    unit = "Fahrenheit";
+  } else {
+    unit = "Celcius";
+  }
+  showTemperature(temperature, unit);
+}
+
 function fixNumberLowerThanTen(number) {
   if (number < 10) {
     return "0" + number;
@@ -38,7 +64,7 @@ function handleWeatherResponse(response) {
   let weatherDescription = weather.main;
   let weatherIcon = weather.icon;
   let windSpeed = response.data.wind.speed;
-  let temperature = Math.round(response.data.main.temp);
+  temperature = response.data.main.temp;
   let cityName = response.data.name;
   document.querySelector("#city").innerHTML = cityName;
   document.querySelector("#weather").innerHTML = weatherDescription;
@@ -53,7 +79,7 @@ function handleWeatherResponse(response) {
   // ).innerHTML = `Precipitation: ${precipitation}%`;
   document.querySelector("#humidity").innerHTML = `Humidity: ${humidity}%`;
   document.querySelector("#wind").innerHTML = `Wind: ${windSpeed}km/h`;
-  document.querySelector("#temperature").innerHTML = `${temperature}°C`;
+  showTemperature(temperature, unit);
 }
 
 function handleCurrentPosition(position) {
