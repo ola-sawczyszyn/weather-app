@@ -61,13 +61,14 @@ function handleWeatherResponse(response) {
   let humidity = response.data.main.humidity;
   console.log(response.data);
   let weather = response.data.weather[0];
-  let weatherDescription = weather.main;
+  let weatherDescription = weather.description;
   let weatherIcon = weather.icon;
   let windSpeed = response.data.wind.speed;
   temperature = response.data.main.temp;
   let cityName = response.data.name;
   document.querySelector("#city").innerHTML = cityName;
-  document.querySelector("#weather").innerHTML = weatherDescription;
+  document.querySelector("#weather").innerHTML =
+    capitaliseFirstLetter(weatherDescription);
   document
     .querySelector("#icon")
     .setAttribute(
@@ -99,6 +100,12 @@ function handleSearchCity(event) {
 function handleCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(handleCurrentPosition);
+}
+
+function capitaliseFirstLetter(text) {
+  let capitalisedFirstLetter = text[0].toUpperCase();
+  let restOfText = text.substring(1);
+  return `${capitalisedFirstLetter}${restOfText}`;
 }
 
 let form = document.querySelector("#searchCityForm");
