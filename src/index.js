@@ -8,33 +8,49 @@ let weekDays = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday"
+  "Saturday",
 ];
 
 function fixNumberLowerThanTen(number) {
-    if(number < 10) {
-        return '0' + number;
-    }else {
-        return number;
-    }
+  if (number < 10) {
+    return "0" + number;
+  } else {
+    return number;
+  }
 }
-
 
 let currentWeekDay = weekDays[now.getDay()];
 let currentHour = now.getHours();
 let currentMinutes = now.getMinutes();
-let currentDateTime = currentWeekDay + " " + fixNumberLowerThanTen(currentHour) + ":" + fixNumberLowerThanTen(currentMinutes);
+let currentDateTime =
+  currentWeekDay +
+  " " +
+  fixNumberLowerThanTen(currentHour) +
+  ":" +
+  fixNumberLowerThanTen(currentMinutes);
 let dateTimeElement = document.querySelector("#dateTime");
 dateTimeElement.innerHTML = currentDateTime;
 
 function handleWeatherResponse(response) {
   let humidity = response.data.main.humidity;
-  let weatherDescription = response.data.weather[0].main;
+  console.log(response.data);
+  let weather = response.data.weather[0];
+  let weatherDescription = weather.main;
+  let weatherIcon = weather.icon;
   let windSpeed = response.data.wind.speed;
   let temperature = Math.round(response.data.main.temp);
   let cityName = response.data.name;
   document.querySelector("#city").innerHTML = cityName;
   document.querySelector("#weather").innerHTML = weatherDescription;
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`
+    );
+  // document.querySelector(
+  //   "#precipitation"
+  // ).innerHTML = `Precipitation: ${precipitation}%`;
   document.querySelector("#humidity").innerHTML = `Humidity: ${humidity}%`;
   document.querySelector("#wind").innerHTML = `Wind: ${windSpeed}km/h`;
   document.querySelector("#temperature").innerHTML = `${temperature}°C`;

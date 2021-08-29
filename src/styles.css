@@ -1,3 +1,17 @@
 .weather-icon {
   font-size: 100px;
 }
+
+img#icon {
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  display: block;
+}
+
+#temperature {
+  display: inline;
+  font-size: 36px;
+  font-weight: 500;
+  flex-grow: 1;
+}
