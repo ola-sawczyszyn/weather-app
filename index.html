@@ -17,7 +17,7 @@
 
   <body>
     <div class="container">
-      <div class="card p-4">
+      <div class="card p-4 mt-4 center">
         <div class="row mb-4">
           <form id="searchCityForm">
             <div class="row">
@@ -31,46 +31,135 @@
               </div>
               <div class="col">
                 <input type="submit" class="btn btn-primary" value="Search" />
-                <button class="btn btn-success" id="currentLocation">Current location</button>
+                <button class="btn btn-success" id="currentLocation">
+                  Current location
+                </button>
               </div>
             </div>
           </form>
-          
         </div>
         <div class="row">
-            <h3 id="city">Oslo</h3>
-            <div id="dateTime">Thursday 23:00</div>
-            <div id="weather">Clear</div>
+          <h3 id="city">Oslo</h3>
+          <div id="dateTime">Thursday 23:00</div>
+          <div id="weather">Clear</div>
         </div>
         <div class="row">
-            <div class="col">
-              <div class="row">
-                <div class="col-2">
-                  <img id="icon" alt="Weather icon" src='http://openweathermap.org/img/wn/01d@2x.png'   />
+          <div class="col-8">
+            <div class="row">
+              <div class="col-2">
+                <img
+                  id="icon"
+                  alt="Weather icon"
+                  src="http://openweathermap.org/img/wn/01d@2x.png"
+                />
+              </div>
+              <div class="col">
+                <span id="temperature"
+                  >23°C | <a href="#" onclick="toggleUnits()">°F</a></span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div id="precipitation">Precipitation: 90%</div>
+            <div id="humidity">Humidity: 90%</div>
+            <div id="wind">Wind: 90km/h</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="weather-forecast">
+            <div class="row">
+              <div class="col-2">
+                <div class="weather-forecast-date">Thu</div>
+
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+                  alt=""
+                  width="42"
+                />
+                <div class="weather-forecast-temperature">
+                  <span class="weather-forecast-temperature-max"> 18°C </span>
+                  <span class="weather-forecast-temperature-min"> 12°C </span>
                 </div>
-                <div class="col ">
-                  <span id="temperature">23°C | <a href="#" onclick="toggleUnits()">°F</a></span>
+              </div>
+              <div class="col-2">
+                <div class="weather-forecast-date">Thu</div>
+
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+                  alt=""
+                  width="42"
+                />
+                <div class="weather-forecast-temperature">
+                  <span class="weather-forecast-temperature-max"> 18°C </span>
+                  <span class="weather-forecast-temperature-min"> 12°C </span>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="weather-forecast-date">Thu</div>
+
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+                  alt=""
+                  width="42"
+                />
+                <div class="weather-forecast-temperature">
+                  <span class="weather-forecast-temperature-max"> 18°C </span>
+                  <span class="weather-forecast-temperature-min"> 12°C </span>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="weather-forecast-date">Thu</div>
+
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+                  alt=""
+                  width="42"
+                />
+                <div class="weather-forecast-temperature">
+                  <span class="weather-forecast-temperature-max"> 18°C </span>
+                  <span class="weather-forecast-temperature-min"> 12°C </span>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="weather-forecast-date">Thu</div>
+
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+                  alt=""
+                  width="42"
+                />
+                <div class="weather-forecast-temperature">
+                  <span class="weather-forecast-temperature-max"> 18°C </span>
+                  <span class="weather-forecast-temperature-min"> 12°C </span>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="weather-forecast-date">Thu</div>
+
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+                  alt=""
+                  width="42"
+                />
+                <div class="weather-forecast-temperature">
+                  <span class="weather-forecast-temperature-max"> 18°C </span>
+                  <span class="weather-forecast-temperature-min"> 12°C </span>
                 </div>
               </div>
             </div>
-            <div class="col">
-              <div id="precipitation">
-                Precipitation: 90%
-              </div>
-              <div id="humidity">
-                Humidity: 90%
-              </div>
-              <div id="wind">
-                Wind: 90km/h
-              </div>
-            </div>
+          </div>
         </div>
+      </div>
+      <div class="center">
+        <a href="https://github.com/ola-sawczyszyn/weather-app"
+          >Open-source code
+        </a>
+
+        by Aleksandra Sawczyszyn
+      </div>
     </div>
-    <span>
-      <a href="https://github.com/ola-sawczyszyn/weather-app">Open-source code </a> 
-    
-      by Aleksandra Sawczyszyn
-    </span>
+
     <script
       src="https://kit.fontawesome.com/5f9c4f5adc.js"
       crossorigin="anonymous"
