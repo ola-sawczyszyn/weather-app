@@ -52,6 +52,8 @@ function generateForecastForOneDay(day) {
 }
 
 function showTemperature(temperature, unit) {
+  let tempElement = document.querySelector("#temperature");
+  let tempUnitElement = document.querySelector("#temperature-units");
   let celciusUnit = "°C";
   let fahrenheitUnit = '<a href="#" onclick="toggleUnits()">°F</a>';
   if (unit === "Fahrenheit") {
@@ -59,10 +61,9 @@ function showTemperature(temperature, unit) {
     celciusUnit = '<a href="#" onclick="toggleUnits()">°C</a>';
     fahrenheitUnit = "°F";
   }
-  let finalTemp = Math.floor(temperature);
-  document.querySelector(
-    "#temperature"
-  ).innerHTML = `${finalTemp}${celciusUnit}|${fahrenheitUnit}`;
+
+  tempElement.innerHTML = Math.floor(temperature);
+  tempUnitElement.innerHTML = `${celciusUnit}|${fahrenheitUnit}`;
 }
 
 function toggleUnits() {

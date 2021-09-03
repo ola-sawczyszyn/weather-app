@@ -16,8 +16,8 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="card p-4 mt-4 center">
+    <div class="container pt-4">
+      <div class="card p-4 center">
         <div class="row mb-4">
           <form id="searchCityForm">
             <div class="row">
@@ -44,20 +44,17 @@
           <div id="weather">Clear</div>
         </div>
         <div class="row">
-          <div class="col-8">
-            <div class="row">
-              <div class="col-2">
-                <img
-                  id="icon"
-                  alt="Weather icon"
-                  src="http://openweathermap.org/img/wn/01d@2x.png"
-                />
-              </div>
-              <div class="col">
-                <span id="temperature"
-                  >23°C | <a href="#" onclick="toggleUnits()">°F</a></span
-                >
-              </div>
+          <div class="col-8 temperature-wrapper">
+            <img
+              id="icon"
+              alt="Weather icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+            />
+            <div class="temperature-info">
+              <span id="temperature">23</span>
+              <span id="temperature-units">
+                °C | <a href="#" onclick="toggleUnits()">°F</a>
+              </span>
             </div>
           </div>
           <div class="col">

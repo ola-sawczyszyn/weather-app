@@ -1,12 +1,13 @@
-.weather-icon {
-  font-size: 100px;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-img#icon {
-  width: 64px;
-  height: 64px;
-  padding: 0;
-  display: block;
+.weather-icon {
+  font-size: 100px;
 }
 
 .container > .center {
@@ -14,11 +15,37 @@ img#icon {
   margin: 0 auto;
 }
 
+body {
+  height: 100%;
+  background: linear-gradient(to left top, #1c92d2, #f2fcfe);
+}
+
+.temperature-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+img#icon {
+  width: 72px;
+  height: 72px;
+  padding: 0;
+}
+
+.temperature-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
 #temperature {
   display: inline;
-  font-size: 36px;
+  font-size: 48px;
   font-weight: 500;
-  flex-grow: 1;
+  align-self: center;
+}
+
+#temperature-units {
 }
 
 .weather-forecast {
