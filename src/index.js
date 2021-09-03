@@ -1,6 +1,5 @@
 let apiKey = "adde97fc3eb60495333cc33248427fb1";
 //Tuesday 16:00
-let now = new Date();
 
 let unit = "Celcius";
 let temperature = 23;
@@ -17,6 +16,20 @@ function getWeekDay(date) {
   ];
   return weekDays[date.getDay()];
 }
+
+function showCurrentDateTime() {
+  let dateTimeElement = document.querySelector("#dateTime");
+
+  let now = new Date();
+  let currentWeekDay = getWeekDay(now);
+  let currentHour = fixNumberLowerThanTen(now.getHours());
+  let currentMinutes = fixNumberLowerThanTen(now.getMinutes());
+  let currentDateTime = `${currentWeekDay} ${currentHour}:${currentMinutes}`;
+
+  dateTimeElement.innerHTML = "Last updated: " + currentDateTime;
+}
+
+showCurrentDateTime();
 
 function handleForecastResponse(response) {
   let forecastElement = document.querySelector("#forecast");
@@ -83,18 +96,6 @@ function fixNumberLowerThanTen(number) {
   }
 }
 
-let currentWeekDay = getWeekDay(now);
-let currentHour = now.getHours();
-let currentMinutes = now.getMinutes();
-let currentDateTime =
-  currentWeekDay +
-  " " +
-  fixNumberLowerThanTen(currentHour) +
-  ":" +
-  fixNumberLowerThanTen(currentMinutes);
-let dateTimeElement = document.querySelector("#dateTime");
-dateTimeElement.innerHTML = currentDateTime;
-
 function fetchForecast(coords) {
   let exclude = "current,minutely,hourly,alerts";
   console.log(coords);
@@ -126,6 +127,7 @@ function handleWeatherResponse(response) {
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   windElement.innerHTML = `Wind: ${windSpeed}km/h`;
   showTemperature(temperature, unit);
+  showCurrentDateTime();
   fetchForecast(response.data.coord);
 }
 
